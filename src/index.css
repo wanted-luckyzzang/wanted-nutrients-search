@@ -1,13 +1,39 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: #e3e2e4;
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  font-weight: 400;
+  src: url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('woff2'), url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('woff'),
+    url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  font-weight: 700;
+  src: url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('woff2'), url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('woff'),
+    url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('truetype');
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
