@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import SearchView from './SearchView';
 import { getApi } from 'utils/getApi';
+import { inputToAlpha } from 'utils/inputTrans';
 import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
+import { HANGUL_INPUT } from 'utils/constants/hangulInput';
 
 const SearchContainer = () => {
   const [data, setData] = useState([]);
@@ -27,7 +29,19 @@ const SearchContainer = () => {
   const matchName = useCallback((name, keyword) => {
     if (keyword === '') return false;
     name = name.toLowerCase();
-    keyword = keyword.toString().toLowerCase().replace(/\s/gi, '');
+    keyword = keyword.toString().toLowerCase();
+
+    HANGUL_INPUT.forEach((hangul) => {
+      if (keyword.includes(hangul) && keyword !== '비타민') {
+        keyword = inputToAlpha[hangul].toLowerCase();
+      }
+    });
+
+    if (keyword.includes(' ')) {
+      let keywordRes = keyword.split(' ');
+      return keywordRes.every((piece) => name.includes(piece));
+    }
+
     return name.includes(keyword);
   }, []);
 
@@ -43,15 +57,7 @@ const SearchContainer = () => {
 
   return (
     <Container>
-      {keyword.length <= 0 && (
-        <ContentWrap>
-          궁금하신 영양제의 <br />
-          브랜드명과 제품명을
-          <br />
-          입력해주세요.
-        </ContentWrap>
-      )}
-      <SearchWrap top={keyword}>
+      <SearchWrap>
         <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} />
       </SearchWrap>
       <SearchView renderResults={results} />
@@ -70,17 +76,9 @@ const Container = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0.625rem 2.25rem 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.0625rem;
 `;
 
-const ContentWrap = styled.p`
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.5em;
-  padding: 1rem 5rem;
-  margin-right: auto;
-`;
-
 const SearchWrap = styled.div`
   position: fixed;
-  top: ${(props) => (props.top ? '5rem' : '13rem')};
+  top: 5rem;
   ${({ theme }) => theme.flex.hCenter}
 `;
 
