@@ -55,13 +55,16 @@ export const inputToAlpha = {
 <img src="https://user-images.githubusercontent.com/68722179/154710937-530a2518-c111-4b7a-8de1-67a956272a87.png" width="400" />
 
 ### 해결 과정
-* 첫 측정 이후 Diagnostics에서 폰트 파일 용량으로 인해 로딩 속도가 느려지고 있음을 알게 되었다. <br/>
+첫 측정 이후 Diagnostics에서 폰트 파일 용량으로 인해 로딩 속도가 느려지고 있음을 알게 되었다. <br/>
 <div>
 <img src="https://user-images.githubusercontent.com/68722179/154712187-f3bc309c-256b-4960-ba3c-3e0488054ab2.png" width="500" />
  </div>
-
-* 해결: 기존의 original 폰트를 '서브셋 폰트'(쓰지 않는 한글 조합이 제외된 폰트)로 바꿔주었다.
-* 결과: Performance 점수가 79점에서 96점으로 상승하였다.
+ <br/>
+<div>
+해결: 기존의 original 폰트를 '서브셋 폰트'(쓰지 않는 한글 조합이 제외된 폰트)로 바꿔주었다. <br/>
+<div>
+결과: Performance 점수가 79점에서 96점으로 상승하였다. <br/>
+<div>
 
 ### [사용자 편의를 위한 추가 구현]
 * 검색창을 비우면 기존의 자동완성 결과 삭제
