@@ -1,18 +1,18 @@
 
-## 검색창 설계
+## 1. 주제 : 검색창 설계
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
-### 개발기간 : 22.02.17 ~ 22.02.19
+## 2. 개발기간 : 22.02.17 ~ 22.02.19
 
-## 배포링크:
+## 3. 배포링크 :
 
-## 구현 기능
+## 4. 요구사항 구현 상세
 
 * 
 
-## 6. 디렉토리 구조
+## 5. 디렉토리 구조
 
 ```bash
 .
@@ -34,7 +34,7 @@
 ```
 
 
-## 7. 설치 및 실행 방법
+## 6. 설치 및 실행 방법
 프로젝트 클론 후 다음 명령어를 실행해주세요.
 
     ```bash
@@ -47,7 +47,7 @@
     ```
     
     
-## 8. 커밋 컨벤션
+## 7. 커밋 컨벤션
 
 gitmoji를 사용하여 커밋의 목적이나 의도를 시각적으로 쉽게 식별할 수 있도록 하였습니다.
 
