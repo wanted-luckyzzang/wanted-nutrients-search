@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import SearchInput from './SearchInput';
 import SearchView from './SearchView';
-import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/string';
+import { getApi } from 'utils/getApi';
+import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
 
 const SearchContainer = () => {
   const [data, setData] = useState([]);
@@ -12,7 +12,7 @@ const SearchContainer = () => {
 
   useEffect(() => {
     (async function getData() {
-      const response = await axios.get('http://localhost:8000/data');
+      const response = await getApi();
       setData(response.data);
     })();
   }, []);
@@ -26,10 +26,8 @@ const SearchContainer = () => {
 
   const matchName = useCallback((name, keyword) => {
     if (keyword === '') return false;
-
     name = name.toLowerCase();
     keyword = keyword.toString().toLowerCase().replace(/\s/gi, '');
-
     return name.includes(keyword);
   }, []);
 
@@ -38,7 +36,6 @@ const SearchContainer = () => {
       let resultData = data.filter(
         (item) => true === matchName(item[PRODUCT_NAME], text) || (item[BRAND_NAME] !== null && true === matchName(item[BRAND_NAME], text))
       );
-
       setResults(resultData);
     },
     [data, matchName]

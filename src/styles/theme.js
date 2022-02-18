@@ -1,8 +1,3 @@
-const media = {
-  desktop: '1200px',
-  mobile: '360px',
-};
-
 const color = {
   default: '#000000',
   white: '#ffffff',
@@ -28,7 +23,6 @@ const flex = {
 };
 
 export const theme = {
-  media,
   color,
   flex,
 };
