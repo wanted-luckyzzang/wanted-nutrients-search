@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/string';
+import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
 
 const SearchView = ({ renderResults }) => {
   return (
