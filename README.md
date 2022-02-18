@@ -1,34 +1,66 @@
 
-## 1. 주제 및 기술스택 
-검색창 설계
+## 🧨 주제
+사용자 편의를 고려한 검색창 설계
 
+## 🍰 기술스택
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
-## 2. 개발기간 
+## 🧪 개발기간 
 22.02.17 ~ 22.02.19
 
-## 3. 배포링크
+## 🛍 배포링크
 
 
-## 4. 요구사항 구현 상세
-* 검색 자동완성 구현
+## 🍱 구현 상세
+* 검색 자동완성 기능 구현
+* 특정 한글 입력값을 영어나 숫자 값으로 인식하도록 처리
+```
+export const inputToAlpha = {
+  비타민: 'vitamin',
+  비타민에이: '비타민A',
+  비타민비: '비타민B',
+  비타민씨: '비타민C',
+  비타민디: '비타민D',
+  비타민이: '비타민E',
+  비타민케이: '비타민K',
+  육: '6',
+  오메가쓰리: '오메가3',
+  vitamin: '비타민',
+};
+```
+* 띄어쓰기로 구분하여 **입력된 단어를 모두 포함**하는 결과값 반환
+#### 
+```
+    if (keyword.includes(' ')) {
+      let keywordRes = keyword.split(' ');
+      return keywordRes.every((piece) => name.includes(piece));
+    }
+```
+**'토코'까지 입력했을 때 화면** <br/>
+<img src="https://user-images.githubusercontent.com/68722179/154688536-d1bfab62-95fa-4329-a857-c20e34cbd092.png" width="300" /><br/><br/>
+**'토코'에서 한 칸 띄우고 '타블렛'을 입력했을 때 화면** <br/>
+<img src="https://user-images.githubusercontent.com/68722179/154689279-b68bfe5a-a89f-4bda-a2ac-f395bd011cc7.png" width="300" />
+
+
 * 제품명과 브랜드명 모두 검색결과에 포함
-* 대소문자에 상관없이 검색
-* debounce로 input 입력 최적화
+* 영문 대소문자 상관없이 검색
+
+### [최적화]
+* **debounce로 input 입력 최적화**
+* useCallback, React.memo로 memoization 수행
 
 ### [사용자 편의를 위한 추가 구현]
-* 공백 여부 상관없이 검색 
-* input창에 autoFocus
-* 검색창에 내용이 없으면 자동완성 검색결과 삭제
+* 검색창을 비우면 기존의 자동완성 결과 삭제
+* 새로고침 시 input창에 autoFocus
 
 
-### 5. 설치 및 실행 방법
+## 🍒 설치 및 실행 방법
 프로젝트 클론 - ```yarn install``` -  ```yarn dev``` 
     
     
 
-### 6. 디렉토리 구조
+## 🎷디렉토리 구조
 
 ```bash
 .
@@ -50,7 +82,7 @@
 ```
 
 
-### 7. 커밋 컨벤션
+## 🧙‍♀️ 커밋 컨벤션
 
 gitmoji를 사용하여 커밋의 목적이나 의도를 시각적으로 쉽게 식별할 수 있도록 하였습니다.
 
