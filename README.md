@@ -45,6 +45,7 @@ export const inputToAlpha = {
 ## 최적화 진행 ✈
 * **debounce**로 input 입력 최적화
 * useCallback, React.memo로 **memoization** 수행
+
 ### [크롬 Lighthouse로 Performance 최적화 🚀]
 **첫 측정 결과**<br/>
 <img src="https://user-images.githubusercontent.com/68722179/154710686-a9c0b405-2df4-4ff1-ab1c-dde9e0f22d5f.png" width="400" /><br/>
@@ -53,6 +54,14 @@ export const inputToAlpha = {
 <img src="https://user-images.githubusercontent.com/68722179/154710907-88b295bd-9f7c-4b51-b199-f6328b33d5f3.png" width="400" /><br/>
 <img src="https://user-images.githubusercontent.com/68722179/154710937-530a2518-c111-4b7a-8de1-67a956272a87.png" width="400" />
 
+### 해결 과정
+* 첫 측정 이후 Diagnostics에서 폰트 파일 용량으로 인해 로딩 속도가 느려지고 있음을 알게 되었다. <br/>
+<div>
+<img src="https://user-images.githubusercontent.com/68722179/154712187-f3bc309c-256b-4960-ba3c-3e0488054ab2.png" width="500" />
+ </div>
+
+* 해결: 기존의 original 폰트를 '서브셋 폰트'(쓰지 않는 한글 조합이 제외된 폰트)로 바꿔주었다.
+* 결과: Performance 점수가 79점에서 96점으로 상승하였다.
 
 ### [사용자 편의를 위한 추가 구현]
 * 검색창을 비우면 기존의 자동완성 결과 삭제
@@ -99,5 +108,6 @@ gitmoji를 사용하여 커밋의 목적이나 의도를 시각적으로 쉽게 
 | :bug: | 버그 수정 |
 | :lipstick: | CSS 스타일링 |
 | :wrench: | 설치 관련 파일 |
+| :fire: | 파일 삭제 |
 | :truck: | 디렉토리 또는 파일 이동 |
 | :recycle: | 리팩토링 |
