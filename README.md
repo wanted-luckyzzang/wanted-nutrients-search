@@ -14,7 +14,8 @@
 
 ## 🍱 구현 상세
 * 검색 자동완성 기능 구현
-* 특정 한글 입력값을 영어나 숫자 값으로 인식하도록 처리
+### [사용자가 원하는 영양제를 빠르게 찾을 수 있도록 🧚‍♀️]
+1. 특정 한글 입력값을 영어나 숫자 값으로 인식하도록 처리
 ```
 export const inputToAlpha = {
   비타민: 'vitamin',
@@ -29,7 +30,7 @@ export const inputToAlpha = {
   vitamin: '비타민',
 };
 ```
-* 띄어쓰기로 구분하여 **입력된 단어를 모두 포함**하는 결과값 반환
+2. 띄어쓰기로 구분하여 **입력된 단어를 모두 포함**하는 결과값 반환
 #### 
 ```
     if (keyword.includes(' ')) {
@@ -43,12 +44,12 @@ export const inputToAlpha = {
 <img src="https://user-images.githubusercontent.com/68722179/154689279-b68bfe5a-a89f-4bda-a2ac-f395bd011cc7.png" width="300" />
 
 
-* 제품명과 브랜드명 모두 검색결과에 포함
-* 영문 대소문자 상관없이 검색
+3. 제품명과 브랜드명 모두 검색결과에 포함
+4. 영문 대소문자 상관없이 검색
 
-### [최적화]
-* **debounce로 input 입력 최적화**
-* useCallback, React.memo로 memoization 수행
+## 최적화 ✈
+* **debounce**로 input 입력 최적화
+* useCallback, React.memo로 **memoization** 수행
 
 ### [사용자 편의를 위한 추가 구현]
 * 검색창을 비우면 기존의 자동완성 결과 삭제
