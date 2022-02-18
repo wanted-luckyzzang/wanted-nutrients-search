@@ -2,15 +2,25 @@
 ## 🧨 주제
 사용자 편의를 고려한 검색창 설계
 
-## 🍰 기술스택
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
+## 🚅 배포링크
+
+
+## 🙆‍♀️ 개발자 소개
+<table>
+  <tr align="center">
+    <td><a href="https://github.com/Yena-Yun">윤예나</a></td>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/68722179?v=4" width="150px"/></td>
+  </tr>
+</table>
 
 ## 🧪 개발기간 
 22.02.17 ~ 22.02.19
 
-## 🛍 배포링크
-
+## 🍰 기술스택
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
 ## 🍱 구현 상세
 * 검색 자동완성 기능 구현
@@ -47,7 +57,7 @@ export const inputToAlpha = {
 3. 제품명과 브랜드명 모두 검색결과에 포함
 4. 영문 대소문자 상관없이 검색
 
-## 최적화 ✈
+## 최적화  ✈
 * **debounce**로 input 입력 최적화
 * useCallback, React.memo로 **memoization** 수행
 
