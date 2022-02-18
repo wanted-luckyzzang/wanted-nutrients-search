@@ -1,5 +1,5 @@
 
-## 1. 프로젝트 주제 
+## 1. 주제 및 기술스택 
 검색창 설계
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
