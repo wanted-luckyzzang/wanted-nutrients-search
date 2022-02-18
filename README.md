@@ -1,12 +1,15 @@
 
-## 1. 주제 : 검색창 설계
+## 1. 프로젝트 주제 
+검색창 설계
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
-## 2. 개발기간 : 22.02.17 ~ 22.02.19
+## 2. 개발기간 
+22.02.17 ~ 22.02.19
 
-## 3. 배포링크 :
+## 3. 배포링크
+
 
 ## 4. 요구사항 구현 상세
 * 검색 자동완성 구현
