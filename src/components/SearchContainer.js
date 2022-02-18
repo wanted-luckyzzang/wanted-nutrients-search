@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import SearchInput from './SearchInput';
@@ -7,52 +7,46 @@ import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/string';
 
 const SearchContainer = () => {
   const [data, setData] = useState([]);
-  const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
+  const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
     (async function getData() {
       const response = await axios.get('http://localhost:8000/data');
-      // console.log(response.data);
       setData(response.data);
     })();
   }, []);
 
-  const updateField = (value, update = true) => {
-    if (update && value.length >= 1) {
-      onSearch(value);
-      setKeyword(value);
-    }
-
-    if (!value) {
+  useEffect(() => {
+    if (!keyword) {
       setKeyword('');
       setResults([]);
     }
-  };
+  }, [keyword]);
 
-  // onSearch 함수를 부를 때마다 매번 선언되지 않도록 함수 바깥에 선언
-  let resultData;
-
-  const onSearch = (text) => {
-    resultData = data.filter(
-      (item) => true === matchName(item[PRODUCT_NAME], text) || (item[BRAND_NAME] !== null && true === matchName(item[BRAND_NAME], text))
-    );
-
-    setResults(resultData);
-  };
-
-  const matchName = (name, keyword) => {
+  const matchName = useCallback((name, keyword) => {
     if (keyword === '') return false;
 
     name = name.toLowerCase();
     keyword = keyword.toString().toLowerCase().replace(/\s/gi, '');
 
     return name.includes(keyword);
-  };
+  }, []);
+
+  const onSearch = useCallback(
+    (text) => {
+      let resultData = data.filter(
+        (item) => true === matchName(item[PRODUCT_NAME], text) || (item[BRAND_NAME] !== null && true === matchName(item[BRAND_NAME], text))
+      );
+
+      setResults(resultData);
+    },
+    [data, matchName]
+  );
 
   return (
     <Container>
-      {!keyword && (
+      {keyword.length <= 0 && (
         <ContentWrap>
           궁금하신 영양제의 <br />
           브랜드명과 제품명을
@@ -61,7 +55,7 @@ const SearchContainer = () => {
         </ContentWrap>
       )}
       <SearchWrap top={keyword}>
-        <SearchInput keyword={keyword} updateField={updateField} setKeyword={setKeyword} setResults={setResults} />
+        <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} />
       </SearchWrap>
       <SearchView renderResults={results} />
     </Container>

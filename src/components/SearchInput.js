@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
-import { CLOSE_STYLE, SEARCH_STYLE } from 'utils/constants/inputBtnStyle';
+import SearchIcon from './SearchIcon';
 
-const SearchInput = ({ keyword, updateField, setKeyword, setResults }) => {
+const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
+  const handleChange = useCallback(
+    (e) => {
+      setKeyword(e.target.value);
+    },
+    [setKeyword]
+  );
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      onSearch(keyword);
+    }, 500);
+    return () => clearTimeout(debounce);
+  }, [keyword, onSearch]);
+
   const onDeleteContent = () => {
     setKeyword('');
     setResults([]);
   };
 
   return (
-    <SearchWrap>
-      <SearchBar placeholder='브랜드명 또는 영양제 이름 검색' value={keyword || ''} onChange={(e) => updateField(e.target.value)} />
-      <SearchIconWrap onClick={onDeleteContent}>
-        {keyword ? <CloseOutlined style={CLOSE_STYLE} /> : <SearchOutlined style={SEARCH_STYLE} />}
-      </SearchIconWrap>
-    </SearchWrap>
+    <SearchInputWrap>
+      <SearchIcon keyword={keyword} onDeleteContent={onDeleteContent} />
+      <SearchBar placeholder='브랜드명 또는 영양제 이름 검색' value={keyword} onChange={handleChange} autoFocus />
+    </SearchInputWrap>
   );
 };
 
-const SearchWrap = styled.div`
+const SearchInputWrap = styled.div`
   ${({ theme }) => theme.flex.hCenter}
   position: relative;
 `;
@@ -29,13 +40,6 @@ const SearchBar = styled.input`
   padding: 0.75rem 0.25rem;
   font-size: 1.125rem;
   border-bottom: 0.0625rem solid ${({ theme }) => theme.color.default};
-`;
-
-const SearchIconWrap = styled.div`
-  position: absolute;
-  top: 1rem;
-  right: 0.5rem;
-  cursor: pointer;
 `;
 
 export default SearchInput;
