@@ -16,17 +16,15 @@ const SearchView = ({ renderResults }) => {
 };
 
 const SearchViewContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 5.5rem;
+  ${({ theme }) => theme.flex.column}
   width: 25rem;
   height: 30rem;
+  margin-top: 5.5rem;
   overflow-y: auto;
 `;
 
 const SearchViewWrap = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flex.column}
   border-bottom: 0.0625rem solid ${({ theme }) => theme.color.borderGrey};
   padding: 1.5rem 0;
   cursor: pointer;

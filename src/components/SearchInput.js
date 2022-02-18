@@ -1,8 +1,10 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import SearchIcon from './SearchIcon';
 
 const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
+  const inputRef = useRef(null);
+
   const handleChange = useCallback(
     (e) => {
       setKeyword(e.target.value);
@@ -17,15 +19,22 @@ const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
     return () => clearTimeout(debounce);
   }, [keyword, onSearch]);
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   const onDeleteContent = () => {
     setKeyword('');
     setResults([]);
+    inputRef.current.focus();
   };
 
   return (
     <SearchInputWrap>
       <SearchIcon keyword={keyword} onDeleteContent={onDeleteContent} />
-      <SearchBar placeholder='브랜드명 또는 영양제 이름 검색' value={keyword} onChange={handleChange} autoFocus />
+      <SearchBar ref={inputRef} placeholder='브랜드명 또는 영양제 이름 검색' value={keyword} onChange={handleChange} autoFocus />
     </SearchInputWrap>
   );
 };

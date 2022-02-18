@@ -71,6 +71,7 @@ const Container = styled.div`
   height: 40rem;
   background: ${({ theme }) => theme.color.white};
   ${({ theme }) => theme.flex.column}
+  align-items: center;
   padding: 2rem 0;
   border-radius: 0.125rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0.625rem 2.25rem 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.0625rem;

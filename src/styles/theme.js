@@ -14,7 +14,6 @@ const flex = {
   column: `
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 	`,
   hCenter: `
 		display: flex;
