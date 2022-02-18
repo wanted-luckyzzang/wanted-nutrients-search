@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
 
 body {
@@ -12,17 +12,19 @@ body {
 }
 
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Spoqa Han Sans';
   font-weight: 400;
-  src: url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('woff2'), url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('woff'),
-    url('./styles/fonts/SpoqaHanSansNeo-Regular.otf') format('truetype');
+  src: url('./styles/fonts/SpoqaHanSans-Regular.woff2') format('woff2'), url('./styles/fonts/SpoqaHanSans-Regular.woff') format('woff');
+  font-display: swap;
+  unicode-range: U+AC00- U+D7A3, U+0030-0039;
 }
 
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Spoqa Han Sans';
   font-weight: 700;
-  src: url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('woff2'), url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('woff'),
-    url('./styles/fonts/SpoqaHanSansNeo-Bold.otf') format('truetype');
+  src: url('./styles/fonts/SpoqaHanSans-Bold.woff2') format('woff2'), url('./styles/fonts/SpoqaHanSans-Bold.woff') format('woff');
+  font-display: swap;
+  unicode-range: U+AC00- U+D7A3, U+0030-0039;
 }
 
 code {
