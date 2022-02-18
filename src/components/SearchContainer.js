@@ -42,7 +42,8 @@ const SearchContainer = () => {
 
   const matchName = (name, keyword) => {
     if (keyword === '') return false;
-    keyword = keyword.toString().toLowerCase();
+    name = name.toLowerCase();
+    keyword = keyword.toString().toLowerCase().replace(/\s/gi, '');
     return name.includes(keyword);
   };
 
