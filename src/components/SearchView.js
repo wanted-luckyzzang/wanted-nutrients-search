@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SearchView = ({ renderResults }) => {
+const SearchView = ({ renderResults, resultData }) => {
   const PRODUCT_NAME = '제품명';
   const BRAND_NAME = '브랜드명';
 

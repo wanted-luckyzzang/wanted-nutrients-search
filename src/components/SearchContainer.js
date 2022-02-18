@@ -14,7 +14,7 @@ const SearchContainer = () => {
   useEffect(() => {
     (async function getData() {
       const response = await axios.get('http://localhost:8000/data');
-      // console.log(response.data);
+      console.log(response.data);
       setData(response.data);
     })();
   }, []);
@@ -31,23 +31,18 @@ const SearchContainer = () => {
     if (field === 'results') setResults(value);
   };
 
-  const onSearch = (text) => {
-    data.forEach((item) => {
-      // console.log(keyword.split('')); // 공백까지 배열에 추가된다
+  // onSearch 함수를 부를 때마다 매번 선언되지 않도록 함수 바깥에 선언
+  let resultData;
 
-      if (item) {
-        if (true === matchName(item[PRODUCT_NAME], text)) {
-          setResults([...results, item]);
-        }
-      }
-    });
+  const onSearch = (text) => {
+    resultData = data.filter((item) => true === matchName(item[PRODUCT_NAME], text));
+    console.log(resultData);
+    setResults(resultData);
   };
 
   const matchName = (name, keyword) => {
     if (keyword === '') return false;
-
     keyword = keyword.toString().toLowerCase();
-
     return name.includes(keyword);
   };
 
