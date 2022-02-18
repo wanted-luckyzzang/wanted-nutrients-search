@@ -4,23 +4,8 @@
 
 ## 🚅 배포링크
 
-
-## 🙆‍♀️ 개발자 소개
-<table>
-  <tr align="center">
-    <td><a href="https://github.com/Yena-Yun">윤예나</a></td>
-  </tr>
-  <tr align="center">
-    <td><img src="https://avatars.githubusercontent.com/u/68722179?v=4" width="150px"/></td>
-  </tr>
-</table>
-
 ## 🧪 개발기간 
 22.02.17 ~ 22.02.19
-
-## 🍰 기술스택
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
 ## 🍱 구현 상세
 * 검색 자동완성 기능 구현
@@ -57,19 +42,28 @@ export const inputToAlpha = {
 3. 제품명과 브랜드명 모두 검색결과에 포함
 4. 영문 대소문자 상관없이 검색
 
-## 최적화  ✈
+## 최적화 진행 ✈
 * **debounce**로 input 입력 최적화
 * useCallback, React.memo로 **memoization** 수행
+### [크롬 Lighthouse로 Performance 최적화 🚀]
+**첫 측정 결과**<br/>
+<img src="https://user-images.githubusercontent.com/68722179/154710686-a9c0b405-2df4-4ff1-ab1c-dde9e0f22d5f.png" width="400" /><br/>
+<img src="https://user-images.githubusercontent.com/68722179/154710759-eeaaf9f9-b348-453e-bebe-d839356cd12d.png" width="400" /><br/><br/>
+**최종 측정 결과**<br/>
+<img src="https://user-images.githubusercontent.com/68722179/154710907-88b295bd-9f7c-4b51-b199-f6328b33d5f3.png" width="400" /><br/>
+<img src="https://user-images.githubusercontent.com/68722179/154710937-530a2518-c111-4b7a-8de1-67a956272a87.png" width="400" />
+
 
 ### [사용자 편의를 위한 추가 구현]
 * 검색창을 비우면 기존의 자동완성 결과 삭제
 * 새로고침 시 input창에 autoFocus
 
-
 ## 🍒 설치 및 실행 방법
 프로젝트 클론 - ```yarn install``` -  ```yarn dev``` 
-    
-    
+ 
+## 🍰 기술스택
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![styled-components](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
 
 ## 🎷디렉토리 구조
 
@@ -86,9 +80,11 @@ export const inputToAlpha = {
 │     └── theme.js
 └── utils                     # 상수 및 Api
 │     ├── constants
+│     │      ├── hangulInput.js     # 한글 입력값 배열
 │     │      ├── inputBtnStyle.js
-│     │      └── jsonKey.js       # json 데이터 key 문자열
-│     └── getApi.js                # axios 코드
+│     │      └── jsonKey.js         # json 데이터 key 문자열
+│     ├── inputTrans.js       # 한글 입력값을 영문이나 숫자값으로 전환 (객체)
+│     └── getApi.js           # axios 코드
 
 ```
 
