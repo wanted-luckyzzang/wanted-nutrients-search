@@ -47,9 +47,8 @@
 * 새로고침 시, X 버튼 클릭 시, 검색결과가 없을 시 Guide 텍스트 보여주기
 * 새로고침 시 또는 X 버튼 클릭 시 input창에 autoFocus
 
-<br />
 
-## 최적화
+## 👸 최적화
 ### [React 최적화 🍨]
 * **debounce**로 **input 입력 최적화**
 * useCallback, React.memo로 **memoization** 수행
