@@ -1,11 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import SearchInput from './SearchInput';
-import SearchView from './SearchView';
-import { getApi } from 'utils/getApi';
-import { inputToAlpha } from 'utils/inputTrans';
-import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
-import { HANGUL_INPUT } from 'utils/constants/hangulInput';
+import { SearchInput, SearchView } from './';
+import { getApi, inputToAlpha } from 'utils';
+import { HANGUL_INPUT, PRODUCT_NAME, BRAND_NAME } from 'utils/constants';
 
 const SearchContainer = () => {
   const [data, setData] = useState([]);
@@ -32,6 +29,7 @@ const SearchContainer = () => {
     keyword = keyword.toString().toLowerCase();
 
     HANGUL_INPUT.forEach((hangul) => {
+      // 비타민의 '비'가 'B'로 인식되는 것 방지
       if (keyword.includes(hangul) && keyword !== '비타민') {
         keyword = inputToAlpha[hangul].toLowerCase();
       }

@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useRef } from 'react';
 import styled from 'styled-components';
-import SearchIcon from './SearchIcon';
+import { SearchIcon } from './';
 
 const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
   const inputRef = useRef(null);
