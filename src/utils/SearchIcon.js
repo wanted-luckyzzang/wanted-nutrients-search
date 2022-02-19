@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
-import { CLOSE_STYLE, SEARCH_STYLE } from 'utils/constants/inputBtnStyle';
+import { CLOSE_STYLE, SEARCH_STYLE } from 'utils/constants';
 
-const SearchIcon = ({ keyword, onDeleteContent }) => {
+export const SearchIcon = ({ keyword, onDeleteContent }) => {
   return (
     <SearchIconWrap onClick={onDeleteContent}>
       {keyword ? <CloseOutlined style={CLOSE_STYLE} /> : <SearchOutlined style={SEARCH_STYLE} />}
@@ -17,5 +17,3 @@ const SearchIconWrap = styled.div`
   right: 0.5rem;
   cursor: pointer;
 `;
-
-export default SearchIcon;

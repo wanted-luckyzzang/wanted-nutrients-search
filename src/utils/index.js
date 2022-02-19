@@ -1,4 +1,4 @@
-import { getApi } from './getApi';
-import { inputToAlpha } from './inputTrans';
+import { FirstGuide, NoResultGuide } from './SearchGuide';
+import { SearchIcon } from './SearchIcon';
 
-export { getApi, inputToAlpha };
+export { FirstGuide, NoResultGuide, SearchIcon };

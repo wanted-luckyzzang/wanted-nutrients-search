@@ -1,19 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
-
-const SearchView = ({ renderResults }) => {
-  return (
-    <SearchViewContainer>
-      {renderResults.map((item, idx) => (
-        <SearchViewWrap key={idx}>
-          {item[BRAND_NAME] !== null && <BrandName>{item[BRAND_NAME]}</BrandName>}
-          <ProductName>{item[PRODUCT_NAME]}</ProductName>
-        </SearchViewWrap>
-      ))}
-    </SearchViewContainer>
-  );
-};
 
 const SearchViewContainer = styled.div`
   ${({ theme }) => theme.flex.column}
@@ -24,7 +9,7 @@ const SearchViewContainer = styled.div`
 `;
 
 const SearchViewWrap = styled.div`
-  ${({ theme }) => theme.flex.column}
+  ${({ theme }) => theme.flex.column};
   border-bottom: 0.0625rem solid ${({ theme }) => theme.color.borderGrey};
   padding: 1.5rem 0;
   cursor: pointer;
@@ -41,4 +26,4 @@ const ProductName = styled.p`
   color: ${({ theme }) => theme.color.default};
 `;
 
-export default React.memo(SearchView);
+export { SearchViewContainer, SearchViewWrap, BrandName, ProductName };
