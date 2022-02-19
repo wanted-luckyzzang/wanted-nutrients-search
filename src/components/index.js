@@ -1,6 +1,5 @@
-import SearchContainer from './SearchContainer';
-import SearchInput from './SearchInput';
-import SearchView from './SearchView';
-import SearchIcon from './SearchIcon';
+import { SearchContainer } from './SearchContainer/SearchContainer';
+import { SearchInput } from './SearchInput/SearchInput';
+import SearchView from './SearchView/SearchView';
 
-export { SearchContainer, SearchInput, SearchView, SearchIcon };
+export { SearchContainer, SearchInput, SearchView };

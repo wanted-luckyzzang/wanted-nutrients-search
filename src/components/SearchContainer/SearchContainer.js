@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import styled from 'styled-components';
-import SearchInput from './SearchInput';
-import SearchView from './SearchView';
-import { getApi } from 'utils/getApi';
-import { inputToAlpha } from 'utils/inputTrans';
-import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants/jsonKey';
-import { HANGUL_INPUT } from 'utils/constants/hangulInput';
+import { SearchInput, SearchView } from 'components';
+import { getApi } from 'utils/hooks';
+import { FirstGuide, NoResultGuide } from 'utils';
+import { HANGUL_INPUT, INPUT_TO_ALPHA, PRODUCT_NAME, BRAND_NAME } from 'utils/constants';
+import * as S from './CSS/ContainerStyle';
 
-const SearchContainer = () => {
+export const SearchContainer = () => {
   const [data, setData] = useState([]);
   const [results, setResults] = useState([]);
   const [keyword, setKeyword] = useState('');
+  const [first, setFirst] = useState(true);
 
   useEffect(() => {
     (async function getData() {
@@ -18,6 +17,12 @@ const SearchContainer = () => {
       setData(response.data);
     })();
   }, []);
+
+  useEffect(() => {
+    if (keyword) {
+      setFirst(false);
+    }
+  }, [keyword, setFirst]);
 
   useEffect(() => {
     if (!keyword) {
@@ -32,8 +37,9 @@ const SearchContainer = () => {
     keyword = keyword.toString().toLowerCase();
 
     HANGUL_INPUT.forEach((hangul) => {
+      // 비타민의 '비'가 'B'로 인식되는 것 방지
       if (keyword.includes(hangul) && keyword !== '비타민') {
-        keyword = inputToAlpha[hangul].toLowerCase();
+        keyword = INPUT_TO_ALPHA[hangul].toLowerCase();
       }
     });
 
@@ -50,37 +56,19 @@ const SearchContainer = () => {
       let resultData = data.filter(
         (item) => true === matchName(item[PRODUCT_NAME], text) || (item[BRAND_NAME] !== null && true === matchName(item[BRAND_NAME], text))
       );
+
       setResults(resultData);
     },
     [data, matchName]
   );
 
   return (
-    <Container>
-      <SearchWrap>
-        <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} />
-      </SearchWrap>
-      <SearchView renderResults={results} />
-    </Container>
+    <S.Container>
+      <S.SearchWrap>
+        <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} setFirst={setFirst} />
+      </S.SearchWrap>
+      {first && <FirstGuide />}
+      {!first && results.length > 0 ? <SearchView renderResults={results} /> : !first && <NoResultGuide />}
+    </S.Container>
   );
 };
-
-const Container = styled.div`
-  position: relative;
-  width: 30rem;
-  height: 40rem;
-  background: ${({ theme }) => theme.color.white};
-  ${({ theme }) => theme.flex.column}
-  align-items: center;
-  padding: 2rem 0;
-  border-radius: 0.125rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0.625rem 2.25rem 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.0625rem;
-`;
-
-const SearchWrap = styled.div`
-  position: fixed;
-  top: 5rem;
-  ${({ theme }) => theme.flex.hCenter}
-`;
-
-export default SearchContainer;
