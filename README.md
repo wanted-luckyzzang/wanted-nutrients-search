@@ -30,9 +30,9 @@
   
 2. 공백(space)으로 구분된 입력어를 **모두 포함**하는 결과값 반환
 
-  + **'토코'까지 입력했을 때** <br/>
+  + **'토코'까지 입력한 화면** <br/>
   <img src="https://user-images.githubusercontent.com/68722179/154688536-d1bfab62-95fa-4329-a857-c20e34cbd092.png" width="300" /><br/><br/>
-  + **'토코'에서 한 칸 띄우고 '타블렛'까지 입력했을 때** <br/>
+  + **'토코'에서 한 칸 띄우고 '타블렛'까지 입력한 화면** <br/>
     <img src="https://user-images.githubusercontent.com/68722179/154689279-b68bfe5a-a89f-4bda-a2ac-f395bd011cc7.png" width="300" />
 
 3. 제품명과 브랜드명 모두 검색결과에 포함<br/><br/>
@@ -62,13 +62,13 @@
 <img src="https://user-images.githubusercontent.com/68722179/154710937-530a2518-c111-4b7a-8de1-67a956272a87.png" width="400" />
 
 ### 해결 과정
-폰트 파일 용량으로 인해 첫 로딩 속도가 느려지고 있었음 <br/>
+폰트 파일 용량으로 인해 첫 로딩 속도가 느려지고 있었다. <br/>
 <div>
 <img src="https://user-images.githubusercontent.com/68722179/154712187-f3bc309c-256b-4960-ba3c-3e0488054ab2.png" width="500" />
  </div>
 <div>
  
-* 해결: 기존의 original 폰트를 '서브셋 폰트'(쓰지 않는 한글 조합이 제외된 폰트)로 바꿔줌 <br/>
+* 해결: 기존의 original 폰트를 '서브셋 폰트'(쓰지 않는 한글 조합이 제외된 폰트)로 바꿔주었다. <br/>
  
 * 결과: Performance 점수가 **79점에서 96점**으로 상승 <br/>
 
