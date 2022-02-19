@@ -1,6 +1,6 @@
 import React from 'react';
-import * as S from './CSS/ViewStyle';
 import { PRODUCT_NAME, BRAND_NAME } from 'utils/constants';
+import * as S from './CSS/ViewStyle';
 
 const SearchView = ({ renderResults }) => {
   return (

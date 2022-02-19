@@ -5,7 +5,7 @@ export const FirstGuide = () => {
     <GuideWrap>
       <p>키워드가 여러 개일 경우</p>
       <p>
-        <span>공백</span>을 두고 입력해주세요 (∗❛ᴗ❛∗)
+        <span>공백(space)</span>을 두고 입력해주세요 (∗❛ᴗ❛∗)
       </p>
     </GuideWrap>
   );
@@ -22,16 +22,10 @@ export const NoResultGuide = () => {
 const GuideWrap = styled.div`
   ${({ theme }) => theme.flex.column}
   align-items: center;
-  margin-top: 7rem;
+  margin-top: 12rem;
   color: ${({ theme }) => theme.color.textGrey};
 
   & p:first-child {
     margin-bottom: 1rem;
-  }
-
-  & p {
-    & span {
-      text-decoration: underline;
-    }
   }
 `;

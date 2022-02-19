@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import * as S from './CSS/ContainerStyle';
-import { SearchInput, SearchView } from '..';
+import { SearchInput, SearchView } from 'components';
 import { getApi } from 'utils/hooks';
 import { FirstGuide, NoResultGuide } from 'utils';
 import { HANGUL_INPUT, INPUT_TO_ALPHA, PRODUCT_NAME, BRAND_NAME } from 'utils/constants';
+import * as S from './CSS/ContainerStyle';
 
 export const SearchContainer = () => {
   const [data, setData] = useState([]);
@@ -65,7 +65,7 @@ export const SearchContainer = () => {
   return (
     <S.Container>
       <S.SearchWrap>
-        <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} />
+        <SearchInput keyword={keyword} onSearch={onSearch} setKeyword={setKeyword} setResults={setResults} setFirst={setFirst} />
       </S.SearchWrap>
       {first && <FirstGuide />}
       {!first && results.length > 0 ? <SearchView renderResults={results} /> : !first && <NoResultGuide />}

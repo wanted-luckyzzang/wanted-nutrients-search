@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, useRef } from 'react';
-import * as S from './CSS/InputStyle';
 import { SearchIcon } from 'utils';
+import * as S from './CSS/InputStyle';
 
-export const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
+export const SearchInput = ({ keyword, onSearch, setKeyword, setResults, setFirst }) => {
   const inputRef = useRef(null);
 
   const handleChange = useCallback(
@@ -25,11 +25,12 @@ export const SearchInput = ({ keyword, onSearch, setKeyword, setResults }) => {
     }
   }, []);
 
-  const onDeleteContent = () => {
+  const onDeleteContent = useCallback(() => {
     setKeyword('');
     setResults([]);
     inputRef.current.focus();
-  };
+    setFirst(true);
+  }, [setKeyword, setResults, setFirst]);
 
   return (
     <S.SearchInputWrap>
