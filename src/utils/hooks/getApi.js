@@ -1,5 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
+
+const BASE_URL = "https://nutri-search.herokuapp.com";
 
 export const getApi = () => {
-  return axios.get('https://nutri-search.herokuapp.com/data');
+  return axios.get(`${BASE_URL}/data`);
 };
